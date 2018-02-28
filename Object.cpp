@@ -29,11 +29,9 @@ void Object::readFile(std::string filename){
           if(line.substr(0,1).compare("t")==0){
              if(line.find("triangle")>0){
               triangle=true;
-              cout << "Set true " << endl;
             }
             else{
               triangle = false;
-               cout << "Set false" << endl;
             }
 
           }
@@ -44,7 +42,6 @@ void Object::readFile(std::string filename){
               for(int i=0; i<line.size()-1; i++){
                   if(line[i]=='/' && line[i+1]=='/'){
                       texture=false;
-                      cout << "texture is false" << endl;
                     }
 
                }  
@@ -55,7 +52,6 @@ void Object::readFile(std::string filename){
                 colorCode.push_back(currentColorCode);
                 colorCode.push_back(currentColorCode);
                 if(!texture){ 
-                  cout << "in 6 " << line << endl;
                   sscanf(line.c_str(),"%*s %i %*c %*c %i %i %*c %*c %i %i %*c %*c  %i", &v1, &n, &v2, &n, &v3, &n);
                   vertexArray.push_back(v[v1-1]);
                   vertexArray.push_back(v[v2-1]);

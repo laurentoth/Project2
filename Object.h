@@ -31,6 +31,11 @@ public:
   void addColor(float red, float green, float blue){colors.push_back(glm::vec3(red,green,blue));};
  vector<int> getColorCodeArray(){return colorCode;};
 vector<glm::vec3> getColorArray(){return colors;};
+void setRotation(float angle, float xcor, float ycor, float zcor){a=angle; rx=xcor; ry=ycor; rz=zcor;};
+ float getXRotation(){return rx;};
+  float getYRotation(){return ry;};
+  float getZRotation(){return rz;};
+  float getRotationAngle(){return a;};
   
 
 
@@ -49,6 +54,7 @@ private:
   bool textureHere;
   glm::vec3 Translate;
   float sx, sy, sz;
+  float a, rx, ry, rz;
   
 
   
