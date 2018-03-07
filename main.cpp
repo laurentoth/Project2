@@ -232,12 +232,17 @@ glDisable(GL_LINE_SMOOTH);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, whiteLight);
 
      glMatrixMode(GL_MODELVIEW);
+
      glLoadIdentity();
      gluLookAt(CameraEye.x,CameraEye.y,CameraEye.z,CameraEye.x+CameraAt.x,CameraEye.y+CameraAt.y,CameraEye.z+CameraAt.z,CameraUp.x, CameraUp.y, CameraUp.z);
      glPushMatrix();
      
-    for(int o=0; o<objectVector.size(); o++){
      
+     
+    for(int o=0; o<objectVector.size(); o++){
+
+      
+      glPushMatrix();
        glScalef(objectVector[o].getXScale(), objectVector[o].getYScale(), objectVector[o].getZScale());
        glRotatef(objectVector[o].getRotationAngle(), objectVector[o].getXRotation(), objectVector[o].getYRotation(),objectVector[o].getZRotation());
        glTranslatef(objectVector[o].getTranslate().x,objectVector[o].getTranslate().y,objectVector[o].getTranslate().z);
@@ -254,15 +259,17 @@ glDisable(GL_LINE_SMOOTH);
 
 //Making the ground
   glPushMatrix();
-  glTranslatef(0,-100,100);
+  glTranslatef(0.0,-1.5,0.0);
   glColor3f(0.376, 0.502, 0.22);
   glBegin(GL_QUADS);
-  glVertex3f(-5000.0,150,10000.0);
-  glVertex3f(5000.0,150, 10000.0);
-  glVertex3f(5000.0,0,-10000.0);
-  glVertex3f(-5000.0,0,-10000.0);
+  glVertex3f(-5000.0,0.0,10000.0);
+  glVertex3f(5000.0,0.0, 10000.0);
+  glVertex3f(5000.0,0.0,-10000.0);
+  glVertex3f(-5000.0,0.0,-10000.0);
   glEnd();
   glPopMatrix();
+
+
 
    
     //////////////////////////////////////////////////////////////////////////////
