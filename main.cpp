@@ -231,12 +231,13 @@ glDisable(GL_LINE_SMOOTH);
     glLightfv(GL_LIGHT0, GL_AMBIENT, darkLight);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, whiteLight);
 
+     glMatrixMode(GL_MODELVIEW);
+     glLoadIdentity();
+     gluLookAt(CameraEye.x,CameraEye.y,CameraEye.z,CameraEye.x+CameraAt.x,CameraEye.y+CameraAt.y,CameraEye.z+CameraAt.z,CameraUp.x, CameraUp.y, CameraUp.z);
+     glPushMatrix();
+     
     for(int o=0; o<objectVector.size(); o++){
-       glMatrixMode(GL_MODELVIEW);
-       glLoadIdentity();
-       gluLookAt(CameraEye.x,CameraEye.y,CameraEye.z,CameraEye.x+CameraAt.x,CameraEye.y+CameraAt.y,CameraEye.z+CameraAt.z,CameraUp.x, CameraUp.y, CameraUp.z);
-  
-       glPushMatrix();
+     
        glScalef(objectVector[o].getXScale(), objectVector[o].getYScale(), objectVector[o].getZScale());
        glRotatef(objectVector[o].getRotationAngle(), objectVector[o].getXRotation(), objectVector[o].getYRotation(),objectVector[o].getZRotation());
        glTranslatef(objectVector[o].getTranslate().x,objectVector[o].getTranslate().y,objectVector[o].getTranslate().z);
